@@ -3,7 +3,6 @@ import client from './client'
 export default {
   login: authInfo => {
     return new Promise((resolve, reject) => {
-      console.log(client)
       client.post('/auth/login', authInfo)
         .then(res => resolve({ token: res.data.token, userId: res.data.userId}))
         .catch(err => {

@@ -1,3 +1,4 @@
+import * as types from './mutation-types'
 import {Auth} from '../api'
 
 export default {

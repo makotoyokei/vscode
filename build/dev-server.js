@@ -14,13 +14,10 @@ module.exports = app =>{
   app.post('/auth/login', (req, res) => {
     const { email, password } = req.body
     const user = users[email]
-    console.log("A")
-
     if (user) {
       if (user.password !== password) {
         res.status(401).json({ message: 'ログインに失敗しました。' })
       } else {
-        console.log("A")
         res.json({ userId: user.userId, token: user.token })
       }
     } else {
