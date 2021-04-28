@@ -1,15 +1,15 @@
 <template>
-  <div class="login-view">
+  <div class="login-page">
     <h1>ログインページ</h1>
     <LoginForm :onlogin="handleLogin"/>
   </div>
 </template>
 
 <script>
-import LoginForm from '@/components/molecules/LoginForm.vue'
+import LoginForm from '@/components/organisms/LoginForm'
 
 export default {
-  name: 'LoginView',
+  name: 'LoginPage',
   components: {
     LoginForm
   },
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style scoped>
-  .login-view { 
+  .login-page { 
     width: 320px;
     margin: auto;
   }

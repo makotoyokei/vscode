@@ -1,6 +1,6 @@
-import LoginView from '@/components/templates/LoginView.vue'
+import LoginPage from '@/components/pages/LoginPage'
 
 export default [{
   path: '/login',
-  component: LoginView,
+  component: LoginPage,
 }]
