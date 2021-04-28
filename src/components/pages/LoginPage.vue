@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import LoginForm from '@/components/molecules/LoginForm.vue'
+import LoginForm from '@/components/organisms/LoginForm'
 
 export default {
   name: 'LoginPage',
