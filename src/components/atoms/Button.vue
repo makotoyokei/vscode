@@ -16,7 +16,7 @@ export default {
   props: {
     type: {
       type: String,
-      default: "button"
+      default: 'button'
     },
     disabled: {
       type: Boolean,
@@ -25,16 +25,16 @@ export default {
   },
   computed: {
     classes () {
-      const cls = this.type === "text" ? "-" + this.type : ""
-      return [`button${cls}`];
+      const cls = this.type === 'text' ? '-' + this.type : ''
+      return [`button${cls}`]
     }
   },
   methods: {
     handleClick (ev) {
-      this.$emit("click", ev)
+      this.$emit('click', ev)
     }
   }
-};
+}
 </script>
 
 <style scoped>

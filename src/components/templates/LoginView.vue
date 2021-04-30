@@ -18,17 +18,18 @@ export default {
     handleLogin (authInfo) {
       return this.$store.dispatch('login', authInfo)
         .then(() => {
+          localStorage.setItem('token', this.$store.state.auth.token)
           this.$router.push({ path: '/' })
         })
         .catch(err => this.throwReject(err))
     },
-    throwReject (err)  { return Promise.reject(err) }
+    throwReject (err) { return Promise.reject(err) }
   }
 }
 </script>
 
 <style scoped>
-  .login-view { 
+  .login-view {
     width: 320px;
     margin: auto;
   }

@@ -2,7 +2,7 @@
   <form novalidate>
     <div class="form-item">
       <label for="email">email</label>
-      <input 
+      <input
         id="email"
         v-model="email"
         type="text"
@@ -16,7 +16,7 @@
     </div>
     <div class="form-item">
       <label for="password">password</label>
-      <input 
+      <input
         id="password"
         v-model="password"
         type="password"
@@ -60,11 +60,6 @@ export default {
   name: 'LoginForm',
   components: {
     Button
-  },
-  computed: {
-    disableLoginAcgion () {
-      return true
-    }
   },
 
   props: {
@@ -113,13 +108,13 @@ export default {
       return !this.valid || this.progress
     }
   },
-  
+
   methods: {
     resetError () {
       this.error = ''
     },
 
-    handleClick(ev) {
+    handleClick (ev) {
       if (this.disableLoginAction) { return }
 
       this.progress = true

@@ -7,7 +7,6 @@ module.exports = app =>{
     'foo@domain.com' : {
       password: '12345678',
       userId: 1,
-      token: '1234567890abcdef'
     }
   }
 
@@ -18,10 +17,14 @@ module.exports = app =>{
       if (user.password !== password) {
         res.status(401).json({ message: 'ログインに失敗しました。' })
       } else {
-        res.json({ userId: user.userId, token: user.token })
+        token = Math.random().toString(36).substring(7)
+        res.json({ userId: user.userId, token: token })
       }
     } else {
       res.status(404).json({ message: 'ユーザーが登録されていません。' })
     }
+  })
+  app.post('/auth/logout', (req, res) => {
+    res.status(200).json({ message: 'ログアウトに成功しました。' })
   })
 }

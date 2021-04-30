@@ -5,7 +5,7 @@ export const authorizeToken = (to, from, next) => {
     if (!store.state.auth || !store.state.auth.token) {
       next({ path: '/login' })
     } else {
-      next ()
+      next()
     }
   } else {
     next()
