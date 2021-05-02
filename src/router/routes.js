@@ -1,10 +1,10 @@
-import LoginView from '@/components/templates/LoginView.vue'
+import LoginPage from '@/components/pages/LoginPage.vue'
 import HomeView from '@/components/templates/HomeView.vue'
 import { authorizeTokenForLogin } from './guards'
 
 export default [{
   path: '/login',
-  component: LoginView,
+  component: LoginPage,
   beforeEnter: authorizeTokenForLogin
 }, {
   path: '/',
