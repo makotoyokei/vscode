@@ -7,7 +7,11 @@
         :key="task.taskId"
       >
         <div>
-          {{ task.name }}
+          <router-link
+            :to="{name: 'task-detail-modal', params:{id: task.taskId}}"
+          >
+            {{ task.name }}
+          </router-link>
         </div>
         <Button
           class="button"
