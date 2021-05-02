@@ -1,5 +1,7 @@
 import Auth from './auth'
+import Task from './task'
 
 export {
-  Auth
+  Auth,
+  Task
 }

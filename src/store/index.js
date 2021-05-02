@@ -10,7 +10,13 @@ const state = {
   auth: {
     token: null,
     userId: null
-  }
+  },
+  task: [
+    {
+      taskId: null,
+      name: null
+    }
+  ]
 }
 
 export default new Vuex.Store({

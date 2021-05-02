@@ -1,41 +1,62 @@
 <template>
   <div class="home-view">
-    <div class="login">
-      <div class="login-button">
-        <LoginButton/>
-      </div>
-      <div class="logout-button">
-        <LogoutButton/>
-      </div>
+    <div class="header">
+      <Header/>
     </div>
     <div>
       <h1>ホームページ</h1>
+      <TaskListHeader
+        class="task-list-header"
+        @click="addTaskForm"
+      >
+        TODO
+      </TaskListHeader>
+      <TaskForm
+        @click="cancelTask()"
+        v-show="isTaskForm"
+      >
+
+      </TaskForm>
+      <TaskCard/>
     </div>
   </div>
 </template>
 
 <script>
-import LoginButton from '@/components/molecules/LoginButton.vue'
-import LogoutButton from '@/components/molecules/LogoutButton.vue'
+import Header from '@/components/organisms/Header.vue'
+import TaskListHeader from '@/components/molecules/TaskListHeader.vue'
+import TaskForm from '@/components/molecules/TaskForm.vue'
+import TaskCard from '@/components/molecules/TaskCard.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    LoginButton,
-    LogoutButton
+    Header,
+    TaskListHeader,
+    TaskForm,
+    TaskCard
+  },
+
+  data () {
+    return {
+      isTaskForm: false
+    }
+  },
+
+  methods: {
+    cancelTask () {
+      this.isTaskForm = false
+    },
+    addTaskForm () {
+      this.isTaskForm = true
+    }
   }
 }
 </script>
 
 <style scoped>
-  .login {
-    text-align: right;
+  .task-list-header {
+    width: 200px;
+    line-height: normal;
   }
-  .login-button {
-    display: inline-block;
-  }
-  .login-button {
-    display: inline-block;
-  }
-
 </style>

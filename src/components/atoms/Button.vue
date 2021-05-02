@@ -46,4 +46,7 @@ export default {
     padding-right: 0;
     padding-left: 0;
   }
+  .button:hover {
+    cursor: pointer;
+  }
 </style>
