@@ -10,7 +10,7 @@ export default {
         })
     })
   },
-  fetch: () => {
+  allFetch: () => {
     return new Promise((resolve, reject) => {
       client.get('/task')
         .then(res => resolve(res.data))
@@ -23,6 +23,24 @@ export default {
     return new Promise((resolve, reject) => {
       client.put('/task', taskId)
         .then(() => resolve())
+        .catch(err => {
+          reject(new Error(err.response.data.message || err.message))
+        })
+    })
+  },
+  fetch: (taskId) => {
+    return new Promise((resolve, reject) => {
+      client.get(`/task/${taskId.taskId}`)
+        .then(res => resolve(res.data))
+        .catch(err => {
+          reject(new Error(err.response.data.message || err.message))
+        })
+    })
+  },
+  update: (task) => {
+    return new Promise((resolve, reject) => {
+      client.put(`/task/${task.taskId}`, task)
+        .then(res => resolve(res.data))
         .catch(err => {
           reject(new Error(err.response.data.message || err.message))
         })
