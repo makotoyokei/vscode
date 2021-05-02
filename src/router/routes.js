@@ -1,5 +1,5 @@
 import LoginPage from '@/components/pages/LoginPage.vue'
-import HomeView from '@/components/templates/HomeView.vue'
+import HomePage from '@/components/pages/HomePage.vue'
 import { authorizeTokenForLogin } from './guards'
 
 export default [{
@@ -8,6 +8,6 @@ export default [{
   beforeEnter: authorizeTokenForLogin
 }, {
   path: '/',
-  component: HomeView,
+  component: HomePage,
   meta: { requiresAuth: true }
 }]

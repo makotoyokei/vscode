@@ -1,5 +1,5 @@
 <template>
-  <div class="home-view">
+  <div class="home-page">
     <div class="header">
       <Header/>
     </div>
@@ -24,12 +24,12 @@
 
 <script>
 import Header from '@/components/organisms/Header.vue'
-import TaskListHeader from '@/components/molecules/TaskListHeader.vue'
-import TaskForm from '@/components/molecules/TaskForm.vue'
-import TaskCard from '@/components/molecules/TaskCard.vue'
+import TaskListHeader from '@/components/organisms/TaskListHeader.vue'
+import TaskForm from '@/components/organisms/TaskForm.vue'
+import TaskCard from '@/components/organisms/TaskCard.vue'
 
 export default {
-  name: 'HomeView',
+  name: 'HomePage',
   components: {
     Header,
     TaskListHeader,
