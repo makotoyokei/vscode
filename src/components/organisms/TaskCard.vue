@@ -33,12 +33,6 @@ export default {
     Button
   },
 
-  data () {
-    return {
-      taskList: this.$store.state.task
-    }
-  },
-
   methods: {
     clearTask (taskId) {
       this.$store.dispatch('clearTask', { taskId: taskId })
@@ -49,8 +43,14 @@ export default {
     throwReject (err) { return Promise.reject(err) }
   },
 
+  computed: {
+    taskList () {
+      return this.$store.state.task
+    }
+  },
+
   created () {
-    this.$store.dispatch('fetchTask')
+    this.$store.dispatch('fetchTasks')
       .then((res) => {
       })
       .catch(err => this.throwReject(err))
