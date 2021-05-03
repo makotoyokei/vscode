@@ -1,17 +1,17 @@
 <template>
-  <div>
+  <div class="task-list">
     <TaskListHeader
       class="task-list-header"
       @click="addTaskForm"
     >
       TODO
     </TaskListHeader>
+    <TaskCard/>
     <TaskForm
       v-show="isTaskForm"
       @click="cancelTask()"
     >
     </TaskForm>
-    <TaskCard/>
   </div>
 </template>
 
@@ -46,8 +46,20 @@ export default {
 </script>
 
 <style scoped>
-  .task-list-header {
-    width: 200px;
-    line-height: normal;
+  .task-list {
+    width: 300px;
+    display: inline-block;
+    border: 1px solid #555555;
+    padding: 0px 10px;
+    min-height: 500px;
+    border-radius: 10px;
   }
+  .task-card {
+    width: 300px;
+  }
+  .task-list-header {
+    padding-top: 5px;
+    border-bottom: 1px solid #555555;
+  }
+
 </style>

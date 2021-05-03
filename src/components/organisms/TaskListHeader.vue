@@ -35,7 +35,7 @@ export default {
 
 <style scoped>
   .task-list-header {
-    display: inline-block;
+    display: block;
   }
   .task-list-header-container {
     display: flex;
@@ -43,7 +43,7 @@ export default {
   }
   .button {
     border: 0px;
-    background-color: white;
+    background-color: transparent;
     font-weight: bold;
     font-size: 14px;
   }

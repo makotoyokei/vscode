@@ -1,5 +1,5 @@
 <template>
-  <div class="task-list">
+  <div class="task-card">
     <ul>
       <li
         class="task-list-container"
@@ -49,7 +49,7 @@ export default {
     }
   },
 
-  created () {
+  beforeCreate () {
     this.$store.dispatch('fetchTasks')
       .then((res) => {
       })
@@ -60,19 +60,27 @@ export default {
 </script>
 
 <style scoped>
+  ul {
+    margin: 0px;
+    padding: 0px;
+  }
   li {
     list-style-type: none;
   }
-  .task-list {
+  .task-card {
     display: inline-block;
   }
   .task-list-container {
     display: flex;
     justify-content: space-between;
+    border: 1px solid #555555;
+    border-radius: 10px;
+    margin: 3px 0px;
+    padding: 0px 5px;
   }
   .button {
     border: 0px;
-    background-color: white;
+    background-color: transparent;
     font-weight: bold;
     font-size: 14px;
   }
