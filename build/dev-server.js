@@ -12,11 +12,13 @@ module.exports = app =>{
   var tasks = [
     {
       taskId: 1,
-      name: 'タスクを洗い出す'
+      name: 'タスクを洗い出す',
+      description: ''
     },
     {
       taskId: 2,
-      name: 'タスクの優先度をつける'
+      name: 'タスクの優先度をつける',
+      description: ''
     }
   ]
 
@@ -54,5 +56,23 @@ module.exports = app =>{
     targetIndex = tasks.indexOf(targetTask)
     tasks.splice(targetIndex, 1)
     res.status(200).json({ message: 'タスクの削除に成功しました。' })
+  })
+  app.get('/task/:id', (req, res) => {
+    const taskId = Number(req.params.id)
+    targetTask = tasks.find(value =>
+      value.taskId === taskId
+    )
+    res.json(targetTask)
+  })
+  app.put('/task/:id', (req, res) => {
+    const taskId = Number(req.params.id)
+    const name = req.body.taskName
+    const description = req.body.description
+    targetTask = tasks.find(value =>
+      value.taskId === taskId
+    )
+    targetIndex = tasks.indexOf(targetTask)
+    tasks.splice(targetIndex, 1, { taskId: taskId, name: name, description: description})
+    res.status(200).json({ message: 'タスクの編集に成功しました。' })
   })
 }

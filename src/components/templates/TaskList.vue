@@ -1,37 +1,27 @@
 <template>
-  <div class="home-page">
-    <div class="header">
-      <Header/>
-    </div>
-    <div>
-      <h1>テストページ</h1>
-      <TaskListHeader
-        class="task-list-header"
-        @click="addTaskForm"
-      >
-        TODO
-      </TaskListHeader>
-      <TaskForm
-        @click="cancelTask()"
-        v-show="isTaskForm"
-      >
-
-      </TaskForm>
-      <TaskCard/>
-    </div>
+  <div class="task-list">
+    <TaskListHeader
+      class="task-list-header"
+      @click="addTaskForm"
+    >
+    </TaskListHeader>
+    <TaskCard/>
+    <TaskForm
+      v-show="isTaskForm"
+      @click="cancelTask()"
+    >
+    </TaskForm>
   </div>
 </template>
 
 <script>
-import Header from '@/components/templates/Header.vue'
 import TaskListHeader from '@/components/organisms/TaskListHeader.vue'
 import TaskForm from '@/components/organisms/TaskForm.vue'
 import TaskCard from '@/components/organisms/TaskCard.vue'
 
 export default {
-  name: 'HomePage',
+  name: 'TaskList',
   components: {
-    Header,
     TaskListHeader,
     TaskForm,
     TaskCard
@@ -55,8 +45,19 @@ export default {
 </script>
 
 <style scoped>
-  .task-list-header {
-    width: 200px;
-    line-height: normal;
+  .task-list {
+    min-width: 300px;
+    display: inline-block;
+    border: 1px solid #555555;
+    min-height: 700px;
+    border-radius: 10px;
   }
+  .task-card {
+    width: 300px;
+  }
+  .task-list-header {
+    padding-top: 5px;
+    border-bottom: 1px solid #555555;
+  }
+
 </style>

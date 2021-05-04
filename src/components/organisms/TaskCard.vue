@@ -1,5 +1,5 @@
 <template>
-  <div class="task-list">
+  <div class="task-card">
     <ul>
       <li
         class="task-list-container"
@@ -7,7 +7,11 @@
         :key="task.taskId"
       >
         <div>
-          {{ task.name }}
+          <router-link
+            :to="{name: 'task-detail-modal', params:{id: task.taskId}}"
+          >
+            {{ task.name }}
+          </router-link>
         </div>
         <Button
           class="button"
@@ -29,12 +33,6 @@ export default {
     Button
   },
 
-  data () {
-    return {
-      taskList: this.$store.state.task
-    }
-  },
-
   methods: {
     clearTask (taskId) {
       this.$store.dispatch('clearTask', { taskId: taskId })
@@ -45,8 +43,14 @@ export default {
     throwReject (err) { return Promise.reject(err) }
   },
 
-  created () {
-    this.$store.dispatch('fetchTask')
+  computed: {
+    taskList () {
+      return this.$store.state.task
+    }
+  },
+
+  beforeCreate () {
+    this.$store.dispatch('fetchTasks')
       .then((res) => {
       })
       .catch(err => this.throwReject(err))
@@ -56,19 +60,27 @@ export default {
 </script>
 
 <style scoped>
+  ul {
+    margin: 0px;
+    padding: 0px;
+  }
   li {
     list-style-type: none;
   }
-  .task-list {
+  .task-card {
     display: inline-block;
   }
   .task-list-container {
     display: flex;
     justify-content: space-between;
+    border: 1px solid #555555;
+    border-radius: 10px;
+    padding: 0px 5px;
+    margin: 5px 10px;
   }
   .button {
     border: 0px;
-    background-color: white;
+    background-color: transparent;
     font-weight: bold;
     font-size: 14px;
   }

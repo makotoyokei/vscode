@@ -1,9 +1,14 @@
 <template>
-  <div>
+  <div class="task-form">
     <div>
-      <textarea cols="30" rows="2" v-model="task"></textarea>
+      <textarea
+        cols="36"
+        rows="2"
+        placeholder="タスク"
+        v-model="task">
+      </textarea>
     </div>
-    <div>
+    <div class="button-container">
       <Button
         class="add-button"
         @click="createTask"
@@ -64,6 +69,20 @@ export default {
 </script>
 
 <style scoped>
+  .task-form {
+    margin: 10px;
+  }
+  .button-container {
+    display: flex;
+  }
   .add-button {
+    width: 50%;
+    border-radius: 5px;
+    margin-right: 5px
+  }
+  .cancel-button {
+    width: 50%;
+    border-radius: 5px;
+    margin-left: 5px;
   }
 </style>

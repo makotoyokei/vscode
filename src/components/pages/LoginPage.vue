@@ -19,7 +19,7 @@ export default {
       return this.$store.dispatch('login', authInfo)
         .then(() => {
           localStorage.setItem('token', this.$store.state.auth.token)
-          this.$router.push({ path: '/' })
+          this.$router.push({ path: '/tasks' })
         })
         .catch(err => this.throwReject(err))
     },
