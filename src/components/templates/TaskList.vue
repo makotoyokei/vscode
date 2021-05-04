@@ -34,21 +34,19 @@ export default {
   },
 
   props: {
-    type: Number
-  },
-
-  data () {
-    return {
-      isTaskForm: false
+    type: Number,
+    isTaskForm: {
+      default: false,
+      type: Boolean
     }
   },
 
   methods: {
     cancelTask () {
-      this.isTaskForm = false
+      this.$emit('closeTaskForm', this.type)
     },
     addTaskForm () {
-      this.isTaskForm = true
+      this.$emit('closeOtherTaskForm', this.type)
     },
     handleClick (id) {
       this.$emit('click', id)

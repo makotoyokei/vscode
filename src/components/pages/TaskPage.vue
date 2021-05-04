@@ -5,21 +5,30 @@
       <TaskList
         class="task-todo"
         :type="taskType.todo"
+        :isTaskForm="isTaskForm[taskType.todo-1]"
         @click="createModal"
+        @closeTaskForm="closeTaskForm"
+        @closeOtherTaskForm="closeOtherTaskForm"
       >
         TODO
       </TaskList>
       <TaskList
         class="task-wip"
         :type="taskType.wip"
+        :isTaskForm="isTaskForm[taskType.wip-1]"
         @click="createModal"
+        @closeTaskForm="closeTaskForm"
+        @closeOtherTaskForm="closeOtherTaskForm"
       >
         WIP
       </TaskList>
       <TaskList
         class="task-done"
         :type="taskType.done"
+        :isTaskForm="isTaskForm[taskType.done-1]"
         @click="createModal"
+        @closeTaskForm="closeTaskForm"
+        @closeOtherTaskForm="closeOtherTaskForm"
       >
         DONE
       </TaskList>
@@ -51,7 +60,8 @@ export default {
 
   data () {
     return {
-      notHasModal: true
+      notHasModal: true,
+      isTaskForm: [false, false, false]
     }
   },
 
@@ -64,6 +74,14 @@ export default {
   methods: {
     close () {
       this.notHasModal = true
+    },
+    closeTaskForm (taskType) {
+      this.isTaskForm.splice(taskType - 1, 1, false)
+    },
+    closeOtherTaskForm (taskType) {
+      this.isTaskForm.splice(taskType - 1, 1, true)
+      this.isTaskForm.splice((taskType - 2) % 3, 1, false)
+      this.isTaskForm.splice((taskType - 3) % 3, 1, false)
     },
     createModal (id) {
       this.$store.dispatch('fetchTask', { taskId: id })
