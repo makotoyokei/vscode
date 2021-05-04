@@ -4,7 +4,6 @@
       class="task-list-header"
       @click="addTaskForm"
     >
-      TODO
     </TaskListHeader>
     <TaskCard/>
     <TaskForm
@@ -47,11 +46,10 @@ export default {
 
 <style scoped>
   .task-list {
-    width: 300px;
+    min-width: 300px;
     display: inline-block;
     border: 1px solid #555555;
-    padding: 0px 10px;
-    min-height: 500px;
+    min-height: 700px;
     border-radius: 10px;
   }
   .task-card {

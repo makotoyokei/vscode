@@ -75,8 +75,8 @@ export default {
     justify-content: space-between;
     border: 1px solid #555555;
     border-radius: 10px;
-    margin: 3px 0px;
     padding: 0px 5px;
+    margin: 5px 10px;
   }
   .button {
     border: 0px;
