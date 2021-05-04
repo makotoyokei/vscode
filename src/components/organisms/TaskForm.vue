@@ -66,6 +66,7 @@ export default {
         task: this.task, taskId: this.lastTaskId, taskType: this.type
       })
         .then(() => {
+          this.task = ''
         })
         .catch(err => this.throwReject(err))
     },
