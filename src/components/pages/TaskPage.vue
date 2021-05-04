@@ -39,7 +39,15 @@ export default {
     taskType () {
       return this.$store.state.taskType
     }
-  }
+  },
+
+  beforeCreate () {
+    this.$store.dispatch('fetchTasks')
+      .then((res) => {
+      })
+      .catch(err => this.throwReject(err))
+  },
+  throwReject (err) { return Promise.reject(err) }
 }
 </script>
 
