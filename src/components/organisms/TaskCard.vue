@@ -8,6 +8,7 @@
         v-show="isTaskType(task.taskType)"
       >
         <div
+          class="task"
           @click="handleClick(task.taskId)"
         >
           {{ task.name }}
@@ -86,5 +87,8 @@ export default {
     background-color: transparent;
     font-weight: bold;
     font-size: 14px;
+  }
+  .task:hover {
+    cursor: pointer;
   }
 </style>

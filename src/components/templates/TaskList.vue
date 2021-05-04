@@ -59,14 +59,14 @@ export default {
 
 <style scoped>
   .task-list {
-    min-width: 350px;
+    min-width: 400px;
     display: inline-block;
     border: 1px solid #555555;
     min-height: 700px;
     border-radius: 10px;
   }
   .task-card {
-    min-width: 350px;
+    width: 100%;
   }
   .task-list-header {
     padding-top: 5px;

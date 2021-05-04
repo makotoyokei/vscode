@@ -28,7 +28,6 @@
         :class="{ 'not-has-modal': notHasModal }"
       >
         <TaskDetailModal
-          class="task-detail-modal"
           @close="close"
       >
       </TaskDetailModal>
@@ -92,10 +91,10 @@ export default {
     justify-content: space-between;
   }
   .task-todo {
-    margin-left: 10px;
+    margin-left: 50px;
   }
   .task-done {
-    margin-right: 10px;
+    margin-right: 50px;
   }
   .modal {
     z-index: 1;
@@ -111,11 +110,5 @@ export default {
   }
   .not-has-modal {
     display: none;
-  }
-  .task-detail-modal {
-    background-color: white;
-    width: 400px;
-    height: 300px;
-    border: 3px solid #555555;
   }
 </style>
