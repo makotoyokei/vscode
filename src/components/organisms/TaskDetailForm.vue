@@ -23,7 +23,7 @@
     <div>
       <Button
         class="button"
-        @click="updateTask($event.target.value)"
+        @click="updateTask()"
       >
         更新
       </Button>
@@ -48,24 +48,12 @@ export default {
   },
 
   computed: {
-    taskId () {
-      return Number(this.$route.params['id'])
-    },
     task () {
-      return this.$store.state.task[0]
+      return this.$store.state.task
     },
     taskType () {
       return this.task.taskType
     }
-    // taskCopy () {
-    //   return Object.assign({}, this.task)
-    // }
-    // taskName () {
-    //   return this.task.name
-    // },
-    // description () {
-    //   return this.task.description
-    // }
   },
 
   methods: {
@@ -76,20 +64,20 @@ export default {
         taskId: this.task.taskId, taskName: taskName, description: description, taskType: this.taskType
       })
         .then((res) => {
-          this.$router.push({ path: '/tasks' })
+          this.$emit('completeUpdate')
         })
         .catch(err => this.throwReject(err))
     },
     throwReject (err) { return Promise.reject(err) }
-  },
+  }
 
-  created () {
-    this.$store.dispatch('fetchTask', { taskId: this.taskId })
-      .then((res) => {
-      })
-      .catch(err => this.throwReject(err))
-  },
-  throwReject (err) { return Promise.reject(err) }
+  // created () {
+  //   this.$store.dispatch('fetchTask', { taskId: this.taskId })
+  //     .then((res) => {
+  //     })
+  //     .catch(err => this.throwReject(err))
+  // },
+  // throwReject (err) { return Promise.reject(err) }
 
 }
 </script>

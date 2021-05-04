@@ -1,7 +1,7 @@
 import LoginPage from '@/components/pages/LoginPage.vue'
 import HomePage from '@/components/pages/HomePage.vue'
 import TaskPage from '@/components/pages/TaskPage.vue'
-import TaskDetailModal from '@/components/pages/TaskDetailModal.vue'
+import TaskDetailModal from '@/components/templates/TaskDetailModal.vue'
 import { authorizeTokenForLogin } from './guards'
 
 export default [{

@@ -7,12 +7,10 @@
         :key="task.taskId"
         v-show="isTaskType(task.taskType)"
       >
-        <div>
-          <router-link
-            :to="{name: 'task-detail-modal', params:{id: task.taskId}}"
-          >
-            {{ task.name }}
-          </router-link>
+        <div
+          @click="handleClick(task.taskId)"
+        >
+          {{ task.name }}
         </div>
         <Button
           class="button"
@@ -39,6 +37,9 @@ export default {
   },
 
   methods: {
+    handleClick (id) {
+      this.$emit('click', id)
+    },
     clearTask (taskId) {
       this.$store.dispatch('clearTask', { taskId: taskId })
         .then((res) => {
@@ -50,7 +51,7 @@ export default {
 
   computed: {
     taskList () {
-      return this.$store.state.task
+      return this.$store.state.tasks
     },
     isTaskType () {
       return function (type) {

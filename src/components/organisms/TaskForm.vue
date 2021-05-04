@@ -42,7 +42,7 @@ export default {
   data () {
     return {
       task: '',
-      taskList: this.$store.state.task
+      taskList: this.$store.state.tasks
     }
   },
 

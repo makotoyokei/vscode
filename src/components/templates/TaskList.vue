@@ -8,11 +8,12 @@
     </TaskListHeader>
     <TaskCard
       :type="type"
+      @click="handleClick"
     >
     </TaskCard>
     <TaskForm
       v-show="isTaskForm"
-      @click="cancelTask()"
+      @click="cancelTask"
       :type="type"
     >
     </TaskForm>
@@ -48,6 +49,9 @@ export default {
     },
     addTaskForm () {
       this.isTaskForm = true
+    },
+    handleClick (id) {
+      this.$emit('click', id)
     }
   }
 }

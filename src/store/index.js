@@ -11,7 +11,7 @@ const state = {
     token: null,
     userId: null
   },
-  task: [
+  tasks: [
     {
       taskId: null,
       name: null,
@@ -19,6 +19,12 @@ const state = {
       taskType: null
     }
   ],
+  task: {
+    taskId: null,
+    name: null,
+    description: null,
+    taskType: null
+  },
   taskType: {
     todo: 1,
     wip: 2,

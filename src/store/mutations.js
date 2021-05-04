@@ -9,9 +9,9 @@ export default {
     state.auth.userId = null
   },
   [types.FETCH_TASKS] (state, payload) {
-    state.task.splice(0, 2, payload)
+    state.tasks.splice(0, 2, payload)
   },
   [types.FETCH_TASK] (state, payload) {
-    state.task.splice(0, 1, payload)
+    state.task = payload
   }
 }
