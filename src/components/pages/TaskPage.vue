@@ -4,19 +4,19 @@
     <div class="task">
       <TaskList
         class="task-todo"
-        :type="1"
+        :type="taskType.todo"
       >
         TODO
       </TaskList>
       <TaskList
         class="task-wip"
-        :type="2"
+        :type="taskType.wip"
       >
         WIP
       </TaskList>
       <TaskList
         class="task-done"
-        :type="3"
+        :type="taskType.done"
       >
         DONE
       </TaskList>
@@ -33,6 +33,12 @@ export default {
   components: {
     Header,
     TaskList
+  },
+
+  computed: {
+    taskType () {
+      return this.$store.state.taskType
+    }
   }
 }
 </script>

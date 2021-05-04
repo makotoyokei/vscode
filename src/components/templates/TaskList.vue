@@ -13,6 +13,7 @@
     <TaskForm
       v-show="isTaskForm"
       @click="cancelTask()"
+      :type="type"
     >
     </TaskForm>
   </div>

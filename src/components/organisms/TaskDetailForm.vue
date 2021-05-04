@@ -53,6 +53,9 @@ export default {
     },
     task () {
       return this.$store.state.task[0]
+    },
+    taskType () {
+      return this.task.taskType
     }
     // taskCopy () {
     //   return Object.assign({}, this.task)
@@ -70,7 +73,7 @@ export default {
       var taskName = this.taskName === '' ? this.task.name : this.taskName
       var description = this.description === '' ? this.task.description : this.description
       this.$store.dispatch('updateTask', {
-        taskId: this.task.taskId, taskName: taskName, description: description
+        taskId: this.task.taskId, taskName: taskName, description: description, taskType: this.taskType
       })
         .then((res) => {
           this.$router.push({ path: '/tasks' })

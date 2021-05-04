@@ -44,7 +44,8 @@ module.exports = app =>{
   app.post('/task', (req, res) => {
     const taskId = req.body.taskId + 1
     const name = req.body.task
-    tasks.push({ taskId: taskId, name : name })
+    const type = req.body.taskType
+    tasks.push({ taskId: taskId, name: name, taskType: type })
     res.status(200).json({ message: 'タスクの追加に成功しました。' })
   })
   app.get('/task', (req, res) => {
@@ -70,11 +71,14 @@ module.exports = app =>{
     const taskId = Number(req.params.id)
     const name = req.body.taskName
     const description = req.body.description
+    const type = req.body.taskType
     targetTask = tasks.find(value =>
       value.taskId === taskId
     )
     targetIndex = tasks.indexOf(targetTask)
-    tasks.splice(targetIndex, 1, { taskId: taskId, name: name, description: description})
+    tasks.splice(targetIndex, 1, {
+      taskId: taskId, name: name, description: description, taskType: type
+    })
     res.status(200).json({ message: 'タスクの編集に成功しました。' })
   })
 }

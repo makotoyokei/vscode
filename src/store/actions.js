@@ -20,7 +20,6 @@ export default {
     return Task.create(task)
       .then(() => {
         dispatch('fetchTasks')
-        // commit(types.TASK_CREATE, { name, taskId })
       })
       .catch(err => { throw err })
   },

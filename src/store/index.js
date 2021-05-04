@@ -18,7 +18,12 @@ const state = {
       description: null,
       taskType: null
     }
-  ]
+  ],
+  taskType: {
+    todo: 1,
+    wip: 2,
+    done: 3
+  }
 }
 
 export default new Vuex.Store({

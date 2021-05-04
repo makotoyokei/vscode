@@ -35,6 +35,10 @@ export default {
     Button
   },
 
+  props: {
+    type: Number
+  },
+
   data () {
     return {
       task: '',
@@ -58,7 +62,9 @@ export default {
       this.$emit('click')
     },
     createTask () {
-      return this.$store.dispatch('createTask', { task: this.task, taskId: this.lastTaskId })
+      return this.$store.dispatch('createTask', {
+        task: this.task, taskId: this.lastTaskId, taskType: this.type
+      })
         .then(() => {
         })
         .catch(err => this.throwReject(err))

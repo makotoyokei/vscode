@@ -1,9 +1,9 @@
 import client from './client'
 
 export default {
-  create: (task, taskId) => {
+  create: (task) => {
     return new Promise((resolve, reject) => {
-      client.post('/task', task, taskId)
+      client.post('/task', task)
         .then(() => resolve())
         .catch(err => {
           reject(new Error(err.response.data.message || err.message))
