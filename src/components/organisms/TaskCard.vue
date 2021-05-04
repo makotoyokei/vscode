@@ -5,6 +5,7 @@
         class="task-list-container"
         v-for="task in taskList[0]"
         :key="task.taskId"
+        v-show="isTaskType(task.taskType)"
       >
         <div>
           <router-link
@@ -33,6 +34,10 @@ export default {
     Button
   },
 
+  props: {
+    type: Number
+  },
+
   methods: {
     clearTask (taskId) {
       this.$store.dispatch('clearTask', { taskId: taskId })
@@ -46,6 +51,11 @@ export default {
   computed: {
     taskList () {
       return this.$store.state.task
+    },
+    isTaskType () {
+      return function (type) {
+        return this.type === type
+      }
     }
   },
 

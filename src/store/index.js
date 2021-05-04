@@ -15,7 +15,8 @@ const state = {
     {
       taskId: null,
       name: null,
-      description: null
+      description: null,
+      taskType: null
     }
   ]
 }

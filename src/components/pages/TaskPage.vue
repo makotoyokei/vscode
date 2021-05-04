@@ -2,13 +2,22 @@
   <div>
     <Header/>
     <div class="task">
-      <TaskList class="task-todo">
+      <TaskList
+        class="task-todo"
+        :type="1"
+      >
         TODO
       </TaskList>
-      <TaskList class="task-wip">
+      <TaskList
+        class="task-wip"
+        :type="2"
+      >
         WIP
       </TaskList>
-      <TaskList class="task-done">
+      <TaskList
+        class="task-done"
+        :type="3"
+      >
         DONE
       </TaskList>
     </div>

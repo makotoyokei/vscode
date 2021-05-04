@@ -3,6 +3,7 @@
     <div>
       <textarea
         rows="2"
+        col="34"
         placeholder="タスク"
         v-model="task">
       </textarea>

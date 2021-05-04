@@ -6,7 +6,10 @@
     >
       <slot></slot>
     </TaskListHeader>
-    <TaskCard/>
+    <TaskCard
+      :type="type"
+    >
+    </TaskCard>
     <TaskForm
       v-show="isTaskForm"
       @click="cancelTask()"
@@ -26,6 +29,10 @@ export default {
     TaskListHeader,
     TaskForm,
     TaskCard
+  },
+
+  props: {
+    type: Number
   },
 
   data () {

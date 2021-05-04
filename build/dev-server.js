@@ -13,12 +13,14 @@ module.exports = app =>{
     {
       taskId: 1,
       name: 'タスクを洗い出す',
-      description: ''
+      description: '',
+      taskType: 1
     },
     {
       taskId: 2,
       name: 'タスクの優先度をつける',
-      description: ''
+      description: '',
+      taskType: 1
     }
   ]
 
