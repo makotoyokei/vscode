@@ -1,7 +1,17 @@
 <template>
   <div>
     <Header/>
-    <TaskList/>
+    <div class="task">
+      <TaskList class="task-todo">
+        TODO
+      </TaskList>
+      <TaskList class="task-wip">
+        WIP
+      </TaskList>
+      <TaskList class="task-done">
+        DONE
+      </TaskList>
+    </div>
   </div>
 </template>
 
@@ -17,3 +27,16 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .task {
+    display: flex;
+    justify-content: space-between;
+  }
+  .task-todo {
+    margin-left: 10px;
+  }
+  .task-done {
+    margin-right: 10px;
+  }
+</style>

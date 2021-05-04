@@ -2,7 +2,6 @@
   <div class="task-form">
     <div>
       <textarea
-        cols="36"
         rows="2"
         placeholder="タスク"
         v-model="task">
@@ -84,5 +83,9 @@ export default {
     width: 50%;
     border-radius: 5px;
     margin-left: 5px;
+  }
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
   }
 </style>

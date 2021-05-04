@@ -47,5 +47,6 @@ export default {
   }
   .header {
     background-color: #555555;
+    margin-bottom: 10px;
   }
 </style>
