@@ -7,6 +7,8 @@ import { authorizeTokenForLogin } from './guards'
 export default [{
   path: '/login',
   component: LoginPage,
+  // loginページアクセスした時にトークンあるか確認してるけどなぜ？
+  // トークンあっても特にリダイレクトはしなくていいと思うけど
   beforeEnter: authorizeTokenForLogin
 }, {
   path: '/',

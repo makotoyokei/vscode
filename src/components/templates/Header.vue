@@ -1,3 +1,5 @@
+// templatesにHeaderのコンポーネントがあるのはおかしい
+// templatesはレイアウトに責務を持つコンポーネントを置く
 <template>
   <div class="header">
     <div class="logout">
@@ -23,6 +25,7 @@ export default {
 
   methods: {
     handleClick () {
+      // どうせならasync await使おう。より簡潔に書ける
       return this.$store.dispatch('logout')
         .then(() => {
           localStorage.removeItem('token')
@@ -30,6 +33,7 @@ export default {
         })
         .catch(err => this.throwReject(err))
     },
+    // 特に問題はないけどこれメソッド化してるのなんで？
     throwReject (err) { return Promise.reject(err) }
   }
 }
@@ -40,6 +44,7 @@ export default {
   .logout {
     text-align: right;
     margin-right: 20px;
+    /* marginはこのコンポーネントを使う側で調整する */
   }
   .logout-button {
     width: 110px;
@@ -48,5 +53,6 @@ export default {
   .header {
     background-color: #555555;
     margin-bottom: 10px;
+    /* marginはこのコンポーネントを使う側で調整する */
   }
 </style>
