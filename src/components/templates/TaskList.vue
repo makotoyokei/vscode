@@ -1,3 +1,4 @@
+// Headerと同じくtemplatesに置くべきではない
 <template>
   <div class="task-list">
     <TaskListHeader
@@ -43,6 +44,8 @@ export default {
 
   methods: {
     cancelTask () {
+      // cancel時に行いたい動作は親コンポーンエント側で定義するから、イベント名がcloseTaskFormなのはおかしい
+      // イベントとしてはcancelTask
       this.$emit('closeTaskForm', this.type)
     },
     addTaskForm () {

@@ -19,6 +19,8 @@ export default {
   createTask: ({dispatch}, task) => {
     return Task.create(task)
       .then(() => {
+        // 副作用はなるべく少なくした方がいい。影響範囲が予想できなくなるから
+        // createTaskを読んでる側でawaitしてその後にfetchTasksを呼ぶ
         dispatch('fetchTasks')
       })
       .catch(err => { throw err })

@@ -1,3 +1,5 @@
+// このコンポーネントorganismじゃない？
+// ヘッダー以外では使わなそう
 <template>
   <div class="logout-button">
     <Button

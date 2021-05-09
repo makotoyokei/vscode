@@ -8,10 +8,13 @@ Vue.use(Vuex)
 
 const state = {
   auth: {
+    // localStorageにトークンいれてた気がするけどstoreにもあるのなぜ？
     token: null,
     userId: null
   },
   tasks: [
+    // taskIdがnullである場合も考慮しなければいけないのは結構めんどくさい
+    // 普通に初期化時は空配列でいいのでは？
     {
       taskId: null,
       name: null,
@@ -25,6 +28,8 @@ const state = {
     description: null,
     taskType: null
   },
+  // これって可変なの？
+  // 可変じゃないならstoreに入れずに定数として定義すべき
   taskType: {
     todo: 1,
     wip: 2,
@@ -32,6 +37,7 @@ const state = {
   }
 }
 
+// 今は一緒のファイルでもいいけど、理想としては
 export default new Vuex.Store({
   state,
   getters,

@@ -1,5 +1,8 @@
+// Headerと同じくtemplatesに置くべきではない
 <template>
   <div class="task-detail-modal">
+    <!-- class名に特定のCSSのプロパティを表す名前使うのはいけてない -->
+    <!-- スタイルの変更があってtext-alignが必要なくなったときにclass名も変えることになる -->
     <div class="button-align">
       <Button
         class="button"

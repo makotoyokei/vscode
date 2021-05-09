@@ -6,6 +6,7 @@
         class="task-todo"
         :type="taskType.todo"
         :isTaskForm="isTaskForm[taskType.todo-1]"
+        <!-- ネイティブなonClickイベントと混同するからclickTaskFormとかに変えた方がいい -->
         @click="createModal"
         @closeTaskForm="closeTaskForm"
         @closeOtherTaskForm="closeOtherTaskForm"
@@ -84,6 +85,8 @@ export default {
       this.isTaskForm.splice((taskType - 3) % 3, 1, false)
     },
     createModal (id) {
+      // taskを取得し直す必要ってある？
+      // tasksにタスクの一覧入ってるはずだからそこから取得できるのでは？
       this.$store.dispatch('fetchTask', { taskId: id })
         .then((res) => {
           this.notHasModal = false
@@ -115,6 +118,10 @@ export default {
     margin-right: 50px;
   }
   .modal {
+    /**
+      現状問題ないと思うけど、いきなりz-indexの値を1にするのは後から問題出やすい。
+      通常モーダルは最前面に近いはずだから、間に他の要素入れられるように100とかにしといた方がいい
+    */
     z-index: 1;
     position: fixed;
     top: 0;
@@ -127,6 +134,7 @@ export default {
     justify-content: center;
   }
   .not-has-modal {
+    /** cssで表示非表示切り替えるんじゃなくv-if使えば？ */
     display: none;
   }
 </style>
